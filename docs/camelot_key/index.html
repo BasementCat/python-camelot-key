@@ -1,0 +1,780 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>camelot_key API documentation</title>
+<meta name="description" content="Python library to parse and format musical key notation and convert between Camelot key notation">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Package <code>camelot_key</code></h1>
+</header>
+<section id="section-intro">
+<p>Python library to parse and format musical key notation and convert between Camelot key notation</p>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-variables">Global variables</h2>
+<dl>
+<dt id="camelot_key.ALTERNATE_KEYS"><code class="name">var <span class="ident">ALTERNATE_KEYS</span></code></dt>
+<dd>
+<div class="desc"><p>Alternate key mapping, keys that can be represented differently but are the same note</p></div>
+</dd>
+<dt id="camelot_key.CAMELOT_COLORS"><code class="name">var <span class="ident">CAMELOT_COLORS</span></code></dt>
+<dd>
+<div class="desc"><p>Colors representing camelot key pairs</p></div>
+</dd>
+<dt id="camelot_key.CAMELOT_TO_MUSICAL"><code class="name">var <span class="ident">CAMELOT_TO_MUSICAL</span></code></dt>
+<dd>
+<div class="desc"><p>Mapping of camelot key number/letter pairs to musical key</p></div>
+</dd>
+<dt id="camelot_key.MUSICAL_LONG"><code class="name">var <span class="ident">MUSICAL_LONG</span></code></dt>
+<dd>
+<div class="desc"><p>'Long' format for short musical key representations, can be passed to <code><a title="camelot_key.Key" href="#camelot_key.Key">Key</a></code></p></div>
+</dd>
+<dt id="camelot_key.MUSICAL_TO_CAMELOT"><code class="name">var <span class="ident">MUSICAL_TO_CAMELOT</span></code></dt>
+<dd>
+<div class="desc"><p>Mapping of musical key to camelot key number/letter pairs (inverse of <code><a title="camelot_key.CAMELOT_TO_MUSICAL" href="#camelot_key.CAMELOT_TO_MUSICAL">CAMELOT_TO_MUSICAL</a></code>)</p></div>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="camelot_key.parse"><code class="name flex">
+<span>def <span class="ident">parse</span></span>(<span>value: str | Dict[str, Any]) ‑> <a title="camelot_key.Key" href="#camelot_key.Key">Key</a> | None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def parse(value: t.Union[str, t.Dict[str, t.Any]]) -&gt; t.Optional[Key]:
+    &#34;&#34;&#34;\
+    Parse a value representing a musical key into a Key instance, if possible.
+    Automatically determines the format and parses the data, returning None if a
+    key could not be determined.  Input formats may include:
+
+    **Beatport API - musical key**
+    ```
+    {
+        &#39;letter&#39;: &#39;C&#39;,
+        &#39;is_sharp&#39;: True,
+        &#39;is_flat&#39;: False,
+        &#39;chord_type&#39;: {&#39;name&#39;: &#39;minor&#39;},
+    }
+    ```
+
+    **Beatport API - camelot key**
+    ```
+    {
+        &#39;camelot_number&#39;: 12,
+        &#39;camelot_letter&#39;: &#39;B&#39;,
+    }
+    ```
+
+    **Musical Key - string:** `C#m`, `C # Minor`, etc
+
+    **Camelot Key - string:** `12B`
+    &#34;&#34;&#34;
+
+    if isinstance(value, str):
+        res = _parse_str__musical(value)
+        if res is not None:
+            return res
+
+        res = _parse_str__camelot(value)
+        if res is not None:
+            return res
+    else:
+        res = _parse_beatport__musical(value)
+        if res is not None:
+            return res
+
+        res = _parse_beatport__camelot(value)
+        if res is not None:
+            return res</code></pre>
+</details>
+<div class="desc"><p>Parse a value representing a musical key into a Key instance, if possible.
+Automatically determines the format and parses the data, returning None if a
+key could not be determined.
+Input formats may include:</p>
+<p><strong>Beatport API - musical key</strong></p>
+<pre><code>{
+    'letter': 'C',
+    'is_sharp': True,
+    'is_flat': False,
+    'chord_type': {'name': 'minor'},
+}
+</code></pre>
+<p><strong>Beatport API - camelot key</strong></p>
+<pre><code>{
+    'camelot_number': 12,
+    'camelot_letter': 'B',
+}
+</code></pre>
+<p><strong>Musical Key - string:</strong> <code>C#m</code>, <code>C # Minor</code>, etc</p>
+<p><strong>Camelot Key - string:</strong> <code>12B</code></p></div>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="camelot_key.Key"><code class="flex name class">
+<span>class <span class="ident">Key</span></span>
+<span>(</span><span>letter: Literal['A', 'B', 'C', 'D', 'E', 'F', 'G'] = None,<br>sharp: bool = False,<br>flat: bool = False,<br>type: Literal['major', 'minor'] = 'major',<br>key: str = None,<br>camelot_number: Literal[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] | None = None,<br>camelot_letter: Literal['A', 'B'] | None = None,<br>camelot_color: str | None = None)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass(frozen=True)
+class Key:
+    &#34;&#34;&#34;\
+    Represents a musical/camelot key.  Keys are immutable and hashable, and can
+    be compared and sorted.
+    &#34;&#34;&#34;
+
+    letter: t.Literal[&#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;, &#39;E&#39;, &#39;F&#39;, &#39;G&#39;] = None
+    &#34;&#34;&#34;Musical key letter&#34;&#34;&#34;
+    sharp: bool = False
+    &#34;&#34;&#34;Whether the key is sharp&#34;&#34;&#34;
+    flat: bool = False
+    &#34;&#34;&#34;Whether the key is flat&#34;&#34;&#34;
+    type: t.Literal[&#39;major&#39;, &#39;minor&#39;] = &#39;major&#39;
+    &#34;&#34;&#34;Chord type - major or minor&#34;&#34;&#34;
+    key: str = None
+    &#34;&#34;&#34;&#39;Short&#39; representation of the musical key, like &#39;F#m&#39;&#34;&#34;&#34;
+    camelot_number: t.Optional[t.Literal[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]] = None
+    &#34;&#34;&#34;Number for the camelot key&#34;&#34;&#34;
+    camelot_letter: t.Optional[t.Literal[&#39;A&#39;, &#39;B&#39;]] = None
+    &#34;&#34;&#34;Letter for the camelot key&#34;&#34;&#34;
+    camelot_color: t.Optional[str] = None
+    &#34;&#34;&#34;Color to use for displaying the camelot key&#34;&#34;&#34;
+
+    def __post_init__parse(self):
+        &#34;&#34;&#34;\
+        On init, ensure we have musical key information.  If it was provided
+        then we&#39;re fine; otherwise attempt to get it from the camelot key.  If
+        no camelot key was provided in that case, it&#39;s an error.
+        &#34;&#34;&#34;
+
+        if self.letter is None:
+            if self.camelot_number is None or self.camelot_letter is None:
+                raise ValueError(&#34;No key information provided&#34;)
+            short_key = CAMELOT_TO_MUSICAL.get((self.camelot_number, self.camelot_letter))
+            if not short_key:
+                raise ValueError(&#34;No valid key information provided&#34;)
+            long_key = MUSICAL_LONG.get(short_key)
+            if not long_key:
+                raise ValueError(&#34;No valid key information provided&#34;)
+            for k, v in long_key.items():
+                super().__setattr__(k, v)
+
+        if self.sharp and self.flat:
+            super().__setattr__(&#39;flat&#39;, False)
+
+    def __post_init__key(self):
+        &#34;&#34;&#34;\
+        On init, generate the short key representation/string representation
+        from the musical key information.
+        &#34;&#34;&#34;
+
+        if self.key is None:
+            parts = [self.letter]
+
+            if self.sharp:
+                parts.append(&#39;#&#39;)
+            elif self.flat:
+                parts.append(&#39;b&#39;)
+
+            if self.type == &#39;major&#39; or not self.type:
+                parts.append(&#39;M&#39;)
+            elif self.type == &#39;minor&#39;:
+                parts.append(&#39;m&#39;)
+
+            super().__setattr__(&#39;key&#39;, &#39;&#39;.join(parts))
+
+    def __post_init__camelot(self):
+        &#34;&#34;&#34;\
+        On init, generate the camelot key information from the musical key
+        information if possible.
+        &#34;&#34;&#34;
+
+        if self.camelot_number is None or self.camelot_letter is None:
+            for alt_key in self.alternate_keys:
+                res = MUSICAL_TO_CAMELOT.get(alt_key.key)
+                if res:
+                    n, l = res
+                    super().__setattr__(&#39;camelot_number&#39;, n)
+                    super().__setattr__(&#39;camelot_letter&#39;, l)
+                    break
+        if self.camelot_color is None and self.camelot_number and self.camelot_letter:
+            c = CAMELOT_COLORS.get(self.camelot_number, {}).get(self.camelot_letter)
+            super().__setattr__(&#39;camelot_color&#39;, c)
+
+    def __post_init__validate(self):
+        &#34;&#34;&#34;\
+        On init, validate that the data in the class instance is actually valid.
+        In some cases an exception might have been thrown earlier.
+        &#34;&#34;&#34;
+
+        if self.letter is None:
+            raise TypeError(&#34;letter must be present&#34;)
+        if not isinstance(self.letter, str):
+            raise TypeError(&#34;letter must be a string&#34;)
+        if self.letter not in (&#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;, &#39;E&#39;, &#39;F&#39;, &#39;G&#39;):
+            raise ValueError(&#34;letter must be in A-G&#34;)
+
+        if self.sharp not in (True, False):
+            raise TypeError(&#34;sharp must be True or False&#34;)
+        if self.flat not in (True, False):
+            raise TypeError(&#34;flat must be True or False&#34;)
+        if self.sharp and self.flat:
+            raise ValueError(&#34;Only one of sharp or flat may be True&#34;)
+
+        if self.type is None:
+            raise TypeError(&#34;type must be present&#34;)
+        if not isinstance(self.type, str):
+            raise TypeError(&#34;type must be a string&#34;)
+        if self.type not in (&#39;major&#39;, &#39;minor&#39;):
+            raise ValueError(&#34;type must be major or minor&#34;)
+
+        if self.key is None:
+            raise TypeError(&#34;key must be present&#34;)
+        if not isinstance(self.key, str):
+            raise TypeError(&#34;key must be a string&#34;)
+
+        if self.camelot_number or self.camelot_letter:
+            if self.camelot_number is None or self.camelot_letter is None:
+                raise ValueError(&#34;Both camelot_number and camelot_letter must be provided together&#34;)
+            if not isinstance(self.camelot_number, int):
+                raise TypeError(&#34;camelot_number must be an int&#34;)
+            if self.camelot_number &lt; 1 or self.camelot_number &gt; 12:
+                raise ValueError(&#34;camelot_number must be in 1-12&#34;)
+            if not isinstance(self.camelot_letter, str):
+                raise TypeError(&#34;camelot_letter must be a string&#34;)
+            if self.camelot_letter not in (&#39;A&#39;, &#39;B&#39;):
+                raise ValueError(&#34;camelot_letter must be A or B&#34;)
+
+    def __post_init__(self):
+        &#34;&#34;&#34;\
+        Run all post init tasks.  This ensures the resulting object has all of
+        the data that we can determine from the given arguments, or raises an
+        error if (somewhat) invalid data was provided.
+        &#34;&#34;&#34;
+
+        self.__post_init__parse()
+        self.__post_init__key()
+        self.__post_init__camelot()
+        self.__post_init__validate()
+
+    @property
+    def camelot_key(self) -&gt; t.Optional[str]:
+        &#34;&#34;&#34;\
+        Convert the camelot number and letter to a string representation, if
+        both the number and letter are present.  If either are not present,
+        returns None
+        &#34;&#34;&#34;
+
+        if self.camelot_number and self.camelot_letter:
+            return f&#39;{self.camelot_number}{self.camelot_letter}&#39;
+
+    def __str__(self) -&gt; str:
+        &#34;&#34;&#34;\
+        String representation of the key, returns the short key and the camelot
+        key if available.
+        &#34;&#34;&#34;
+
+        out = self.key
+        ck = self.camelot_key
+        if ck:
+            out = f&#39;{out} ({ck})&#39;
+        return out
+
+    def __hash__(self):
+        &#34;&#34;&#34;\
+        Hash that is used to compare/uniquely identify a key.
+
+        Note that two different keys representing the same note (i.e. F#/Gb) do
+        not produce the same hash value; the properties must be the same
+        &#34;&#34;&#34;
+
+        return hash((self.letter, self.sharp, self.flat, self.type))
+
+    def __eq__(self, other: t.Self) -&gt; bool:
+        &#34;&#34;&#34;\
+        Compare two keys to see if they are the same.  Generally, two keys are
+        the same if the musical key properties (letter, sharp/flat, type) are
+        the same, however two keys representing the same note (i.e. F#/Gb) are
+        also considered to be the same if the chord type is the same.
+        &#34;&#34;&#34;
+
+        if isinstance(other, Key):
+            for other_alt in other.alternate_keys:
+                if hash(self) == hash(other_alt):
+                    return True
+        return False
+
+    def __ne__(self, other: t.Self) -&gt; bool:
+        return not self.__eq__(other)
+
+    @property
+    def _camelot_key_number_repr(self) -&gt; float:
+        &#34;&#34;&#34;\
+        Return a numerical representation of the camelot key, for internal
+        usage.  This numerical representation is sortable, in particular
+        ensuring that the numbers sort in order, as do the letters (ex. 1A &lt; 1B,
+        1B &lt; 2A, etc).
+
+        For keys that do not have a camelot key, they are sorted first.
+
+        The use case here is primarily implementing comparison outside of&#39;
+        equality, for sorting.
+        &#34;&#34;&#34;
+
+        out = -1.0
+        if self.camelot_number and self.camelot_letter:
+            out = float(self.camelot_number)
+            if self.camelot_letter == &#39;B&#39;:
+                out += 0.5
+        return out
+    
+
+    def __lt__(self, other: t.Self) -&gt; bool:
+        if not isinstance(other, Key):
+            raise ValueError(&#34;Uncomparable types&#34;)
+        return self._camelot_key_number_repr &lt; other._camelot_key_number_repr
+
+    def __le__(self, other: t.Self) -&gt; bool:
+        if not isinstance(other, Key):
+            raise ValueError(&#34;Uncomparable types&#34;)
+        return self._camelot_key_number_repr &lt;= other._camelot_key_number_repr
+
+    def __gt__(self, other: t.Self) -&gt; bool:
+        if not isinstance(other, Key):
+            raise ValueError(&#34;Uncomparable types&#34;)
+        return self._camelot_key_number_repr &gt; other._camelot_key_number_repr
+
+    def __ge__(self, other: t.Self) -&gt; bool:
+        if not isinstance(other, Key):
+            raise ValueError(&#34;Uncomparable types&#34;)
+        return self._camelot_key_number_repr &gt;= other._camelot_key_number_repr
+
+    @property
+    def alternate_keys(self) -&gt; t.Generator[t.Self, None, None]:
+        &#34;&#34;&#34;\
+        Produce alternate keys that are technically the same key as this one.
+        The current object is always produced as it is always the same, and if
+        another key that is the same exists it is also produced.
+
+        Examples:
+          * F# is also Gb
+          * C# is also Db
+          * E# is also F (uncommon but not technically wrong...)
+        &#34;&#34;&#34;
+
+        yield self
+        alt = ALTERNATE_KEYS.get((self.letter, self.sharp, self.flat))
+        if alt:
+            yield self.__class__(**alt, type=self.type)
+
+    def _copy(self, **kwargs) -&gt; t.Self:
+        &#34;&#34;&#34;\
+        Create a copy of the current object with updated properties from kwargs.
+        If kwargs contains camelot key information, the musical key information
+        is discarded and only camelot key is used to construct the new instance,
+        and vice versa - if musical key information is provided, camelot key
+        information is discarded.
+
+        If no kwargs are given, the musical key information is used.
+        &#34;&#34;&#34;
+
+        camelot_args = (&#39;camelot_number&#39;, &#39;camelot_letter&#39;)
+        musical_args = (&#39;letter&#39;, &#39;sharp&#39;, &#39;flat&#39;, &#39;type&#39;)
+
+        new_args = {
+            &#39;letter&#39;: self.letter,
+            &#39;sharp&#39;: self.sharp,
+            &#39;flat&#39;: self.flat,
+            &#39;type&#39;: self.type,
+            &#39;camelot_number&#39;: self.camelot_number,
+            &#39;camelot_letter&#39;: self.camelot_letter,
+        }
+
+        if any(((k in kwargs) for k in camelot_args)):
+            for k in musical_args:
+                del new_args[k]
+        else:
+            for k in camelot_args:
+                del new_args[k]
+        new_args.update(kwargs)
+        return Key(**new_args)
+
+    def shift(self, n: int):
+        &#34;&#34;&#34;\
+        Shift the key by N steps on the camelot wheel/circle of fifths,
+        returning a new Key object.  If the current instance does not have
+        camelot key information, raises an error.
+
+        .. important:: Note that this is NOT equivalent to a key shift such as you may find in DJ software - where key shifting is done by note (for example shifing CM up by 1 results in C#M), but rather by the adjacent key on the circle of fifths (shifting CM up by 1 results in FM).
+
+        .. tip:: To shift by adjacent notes, use a factor of 5.
+        &#34;&#34;&#34;
+
+        if not (self.camelot_number and self.camelot_letter):
+            raise ValueError(&#34;Missing camelot key information&#34;)
+
+        return self._copy(camelot_number=((self.camelot_number + n) % 12) or 12)
+
+    def get_adjacent_keys(self, n: int=1) -&gt; t.Generator[t.Tuple[int, t.Self], None, None]:
+        &#34;&#34;&#34;\
+        Get keys adjacent to this key on the circle of fifths, along with the
+        number of steps by which that key must be shifted to be adjacent.  When
+        n&gt;1 is passed, consider keys that are not immediately adjacent.  If n=1,
+        only immediately adjacent keys are considered and the number of steps to
+        shift is always 0.
+
+        In terms of the camelot wheel, for example:
+        Given a key 3A, adjacent keys are 3A (same), 3B (same, but major instead
+        of minor scale), 2A, and 4A.  For all of these the shift value is 0.
+        With n=2, additional adjacent keys would include:
+
+          * 3A +/- 5: (-1, 8A), (+1, 10A)
+          * 3B +/- 5: (-1, 8B), (+1, 10B)
+          * 4A +/- 5: (-1, 9A), (+1, 11A)
+          * 2A +/- 5: (-1, 7A), (+1, 9A)
+
+        Generated values are a tuple of (shift, key)
+
+        .. note:: Nothing is generated if this instance does not have camelot key information
+        .. note:: The results are not in any particular order (there is a deterministic order but it does not have any meaning) but are sortable; sorting without any key results in a list sorted by shift distance, then camelot number &amp; letter
+        &#34;&#34;&#34;
+
+        if self.camelot_number and self.camelot_letter:
+            this_key = self
+            this_alt_key = self._copy(camelot_letter=&#39;B&#39; if self.camelot_letter == &#39;A&#39; else &#39;A&#39;)
+            this_adj_prev = self.shift(-1)
+            this_adj_next = self.shift(1)
+            # This key
+            yield 0, this_key
+            # Alternate key - major vs. minor
+            yield 0, this_alt_key
+            # Previous # on the camelot wheel, same scale
+            yield 0, this_adj_prev
+            # Next # on the camelot wheel, same scale
+            yield 0, this_adj_next
+
+            for i in range(2, n + 1):
+                diff = i - 1
+                shift = diff * 5
+                # Produce the alternate key first - when shifted by N these keys will be exactly the alternate key
+                yield -diff, this_alt_key.shift(shift)
+                yield diff, this_alt_key.shift(-shift)
+                # Then keys that when shifted become the current key, or an ajacent key
+                yield -diff, this_key.shift(shift)
+                yield diff, this_key.shift(-shift)
+                yield -diff, this_adj_prev.shift(shift)
+                yield diff, this_adj_prev.shift(-shift)
+                yield -diff, this_adj_next.shift(shift)
+                yield diff, this_adj_next.shift(-shift)</code></pre>
+</details>
+<div class="desc"><p>Represents a musical/camelot key.
+Keys are immutable and hashable, and can
+be compared and sorted.</p></div>
+<h3>Instance variables</h3>
+<dl>
+<dt id="camelot_key.Key.alternate_keys"><code class="name">prop <span class="ident">alternate_keys</span> : Generator[Self, None, None]</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def alternate_keys(self) -&gt; t.Generator[t.Self, None, None]:
+    &#34;&#34;&#34;\
+    Produce alternate keys that are technically the same key as this one.
+    The current object is always produced as it is always the same, and if
+    another key that is the same exists it is also produced.
+
+    Examples:
+      * F# is also Gb
+      * C# is also Db
+      * E# is also F (uncommon but not technically wrong...)
+    &#34;&#34;&#34;
+
+    yield self
+    alt = ALTERNATE_KEYS.get((self.letter, self.sharp, self.flat))
+    if alt:
+        yield self.__class__(**alt, type=self.type)</code></pre>
+</details>
+<div class="desc"><p>Produce alternate keys that are technically the same key as this one.
+The current object is always produced as it is always the same, and if
+another key that is the same exists it is also produced.</p>
+<h2 id="examples">Examples</h2>
+<ul>
+<li>F# is also Gb</li>
+<li>C# is also Db</li>
+<li>E# is also F (uncommon but not technically wrong&hellip;)</li>
+</ul></div>
+</dd>
+<dt id="camelot_key.Key.camelot_color"><code class="name">var <span class="ident">camelot_color</span> : str | None</code></dt>
+<dd>
+<div class="desc"><p>Color to use for displaying the camelot key</p></div>
+</dd>
+<dt id="camelot_key.Key.camelot_key"><code class="name">prop <span class="ident">camelot_key</span> : str | None</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def camelot_key(self) -&gt; t.Optional[str]:
+    &#34;&#34;&#34;\
+    Convert the camelot number and letter to a string representation, if
+    both the number and letter are present.  If either are not present,
+    returns None
+    &#34;&#34;&#34;
+
+    if self.camelot_number and self.camelot_letter:
+        return f&#39;{self.camelot_number}{self.camelot_letter}&#39;</code></pre>
+</details>
+<div class="desc"><p>Convert the camelot number and letter to a string representation, if
+both the number and letter are present.
+If either are not present,
+returns None</p></div>
+</dd>
+<dt id="camelot_key.Key.camelot_letter"><code class="name">var <span class="ident">camelot_letter</span> : Literal['A', 'B'] | None</code></dt>
+<dd>
+<div class="desc"><p>Letter for the camelot key</p></div>
+</dd>
+<dt id="camelot_key.Key.camelot_number"><code class="name">var <span class="ident">camelot_number</span> : Literal[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] | None</code></dt>
+<dd>
+<div class="desc"><p>Number for the camelot key</p></div>
+</dd>
+<dt id="camelot_key.Key.flat"><code class="name">var <span class="ident">flat</span> : bool</code></dt>
+<dd>
+<div class="desc"><p>Whether the key is flat</p></div>
+</dd>
+<dt id="camelot_key.Key.key"><code class="name">var <span class="ident">key</span> : str</code></dt>
+<dd>
+<div class="desc"><p>'Short' representation of the musical key, like 'F#m'</p></div>
+</dd>
+<dt id="camelot_key.Key.letter"><code class="name">var <span class="ident">letter</span> : Literal['A', 'B', 'C', 'D', 'E', 'F', 'G']</code></dt>
+<dd>
+<div class="desc"><p>Musical key letter</p></div>
+</dd>
+<dt id="camelot_key.Key.sharp"><code class="name">var <span class="ident">sharp</span> : bool</code></dt>
+<dd>
+<div class="desc"><p>Whether the key is sharp</p></div>
+</dd>
+<dt id="camelot_key.Key.type"><code class="name">var <span class="ident">type</span> : Literal['major', 'minor']</code></dt>
+<dd>
+<div class="desc"><p>Chord type - major or minor</p></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="camelot_key.Key.get_adjacent_keys"><code class="name flex">
+<span>def <span class="ident">get_adjacent_keys</span></span>(<span>self, n: int = 1) ‑> Generator[Tuple[int, Self], None, None]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_adjacent_keys(self, n: int=1) -&gt; t.Generator[t.Tuple[int, t.Self], None, None]:
+    &#34;&#34;&#34;\
+    Get keys adjacent to this key on the circle of fifths, along with the
+    number of steps by which that key must be shifted to be adjacent.  When
+    n&gt;1 is passed, consider keys that are not immediately adjacent.  If n=1,
+    only immediately adjacent keys are considered and the number of steps to
+    shift is always 0.
+
+    In terms of the camelot wheel, for example:
+    Given a key 3A, adjacent keys are 3A (same), 3B (same, but major instead
+    of minor scale), 2A, and 4A.  For all of these the shift value is 0.
+    With n=2, additional adjacent keys would include:
+
+      * 3A +/- 5: (-1, 8A), (+1, 10A)
+      * 3B +/- 5: (-1, 8B), (+1, 10B)
+      * 4A +/- 5: (-1, 9A), (+1, 11A)
+      * 2A +/- 5: (-1, 7A), (+1, 9A)
+
+    Generated values are a tuple of (shift, key)
+
+    .. note:: Nothing is generated if this instance does not have camelot key information
+    .. note:: The results are not in any particular order (there is a deterministic order but it does not have any meaning) but are sortable; sorting without any key results in a list sorted by shift distance, then camelot number &amp; letter
+    &#34;&#34;&#34;
+
+    if self.camelot_number and self.camelot_letter:
+        this_key = self
+        this_alt_key = self._copy(camelot_letter=&#39;B&#39; if self.camelot_letter == &#39;A&#39; else &#39;A&#39;)
+        this_adj_prev = self.shift(-1)
+        this_adj_next = self.shift(1)
+        # This key
+        yield 0, this_key
+        # Alternate key - major vs. minor
+        yield 0, this_alt_key
+        # Previous # on the camelot wheel, same scale
+        yield 0, this_adj_prev
+        # Next # on the camelot wheel, same scale
+        yield 0, this_adj_next
+
+        for i in range(2, n + 1):
+            diff = i - 1
+            shift = diff * 5
+            # Produce the alternate key first - when shifted by N these keys will be exactly the alternate key
+            yield -diff, this_alt_key.shift(shift)
+            yield diff, this_alt_key.shift(-shift)
+            # Then keys that when shifted become the current key, or an ajacent key
+            yield -diff, this_key.shift(shift)
+            yield diff, this_key.shift(-shift)
+            yield -diff, this_adj_prev.shift(shift)
+            yield diff, this_adj_prev.shift(-shift)
+            yield -diff, this_adj_next.shift(shift)
+            yield diff, this_adj_next.shift(-shift)</code></pre>
+</details>
+<div class="desc"><p>Get keys adjacent to this key on the circle of fifths, along with the
+number of steps by which that key must be shifted to be adjacent.
+When
+n&gt;1 is passed, consider keys that are not immediately adjacent.
+If n=1,
+only immediately adjacent keys are considered and the number of steps to
+shift is always 0.</p>
+<p>In terms of the camelot wheel, for example:
+Given a key 3A, adjacent keys are 3A (same), 3B (same, but major instead
+of minor scale), 2A, and 4A.
+For all of these the shift value is 0.
+With n=2, additional adjacent keys would include:</p>
+<ul>
+<li>3A +/- 5: (-1, 8A), (+1, 10A)</li>
+<li>3B +/- 5: (-1, 8B), (+1, 10B)</li>
+<li>4A +/- 5: (-1, 9A), (+1, 11A)</li>
+<li>2A +/- 5: (-1, 7A), (+1, 9A)</li>
+</ul>
+<p>Generated values are a tuple of (shift, key)</p>
+<div class="admonition note">
+<p class="admonition-title">Note:&ensp;Nothing is generated if this instance does not have camelot key information</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note:&ensp;The results are not in any particular order (there is a deterministic order but it does not have any meaning) but are sortable; sorting without any key results in a list sorted by shift distance, then camelot number &amp; letter</p>
+</div></div>
+</dd>
+<dt id="camelot_key.Key.shift"><code class="name flex">
+<span>def <span class="ident">shift</span></span>(<span>self, n: int)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def shift(self, n: int):
+    &#34;&#34;&#34;\
+    Shift the key by N steps on the camelot wheel/circle of fifths,
+    returning a new Key object.  If the current instance does not have
+    camelot key information, raises an error.
+
+    .. important:: Note that this is NOT equivalent to a key shift such as you may find in DJ software - where key shifting is done by note (for example shifing CM up by 1 results in C#M), but rather by the adjacent key on the circle of fifths (shifting CM up by 1 results in FM).
+
+    .. tip:: To shift by adjacent notes, use a factor of 5.
+    &#34;&#34;&#34;
+
+    if not (self.camelot_number and self.camelot_letter):
+        raise ValueError(&#34;Missing camelot key information&#34;)
+
+    return self._copy(camelot_number=((self.camelot_number + n) % 12) or 12)</code></pre>
+</details>
+<div class="desc"><p>Shift the key by N steps on the camelot wheel/circle of fifths,
+returning a new Key object.
+If the current instance does not have
+camelot key information, raises an error.</p>
+<div class="admonition important">
+<p class="admonition-title">Important:&ensp;Note that this is NOT equivalent to a key shift such as you may find in DJ software - where key shifting is done by note (for example shifing CM up by 1 results in C#M), but rather by the adjacent key on the circle of fifths (shifting CM up by 1 results in FM).</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip:&ensp;To shift by adjacent notes, use a factor of 5.</p>
+</div></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-variables">Global variables</a></h3>
+<ul class="">
+<li><code><a title="camelot_key.ALTERNATE_KEYS" href="#camelot_key.ALTERNATE_KEYS">ALTERNATE_KEYS</a></code></li>
+<li><code><a title="camelot_key.CAMELOT_COLORS" href="#camelot_key.CAMELOT_COLORS">CAMELOT_COLORS</a></code></li>
+<li><code><a title="camelot_key.CAMELOT_TO_MUSICAL" href="#camelot_key.CAMELOT_TO_MUSICAL">CAMELOT_TO_MUSICAL</a></code></li>
+<li><code><a title="camelot_key.MUSICAL_LONG" href="#camelot_key.MUSICAL_LONG">MUSICAL_LONG</a></code></li>
+<li><code><a title="camelot_key.MUSICAL_TO_CAMELOT" href="#camelot_key.MUSICAL_TO_CAMELOT">MUSICAL_TO_CAMELOT</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="camelot_key.parse" href="#camelot_key.parse">parse</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="camelot_key.Key" href="#camelot_key.Key">Key</a></code></h4>
+<ul class="two-column">
+<li><code><a title="camelot_key.Key.alternate_keys" href="#camelot_key.Key.alternate_keys">alternate_keys</a></code></li>
+<li><code><a title="camelot_key.Key.camelot_color" href="#camelot_key.Key.camelot_color">camelot_color</a></code></li>
+<li><code><a title="camelot_key.Key.camelot_key" href="#camelot_key.Key.camelot_key">camelot_key</a></code></li>
+<li><code><a title="camelot_key.Key.camelot_letter" href="#camelot_key.Key.camelot_letter">camelot_letter</a></code></li>
+<li><code><a title="camelot_key.Key.camelot_number" href="#camelot_key.Key.camelot_number">camelot_number</a></code></li>
+<li><code><a title="camelot_key.Key.flat" href="#camelot_key.Key.flat">flat</a></code></li>
+<li><code><a title="camelot_key.Key.get_adjacent_keys" href="#camelot_key.Key.get_adjacent_keys">get_adjacent_keys</a></code></li>
+<li><code><a title="camelot_key.Key.key" href="#camelot_key.Key.key">key</a></code></li>
+<li><code><a title="camelot_key.Key.letter" href="#camelot_key.Key.letter">letter</a></code></li>
+<li><code><a title="camelot_key.Key.sharp" href="#camelot_key.Key.sharp">sharp</a></code></li>
+<li><code><a title="camelot_key.Key.shift" href="#camelot_key.Key.shift">shift</a></code></li>
+<li><code><a title="camelot_key.Key.type" href="#camelot_key.Key.type">type</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>
