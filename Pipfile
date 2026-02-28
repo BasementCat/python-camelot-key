@@ -9,6 +9,7 @@ camelot-key = {file = ".", editable = true}
 [dev-packages]
 build = "*"
 pdoc3 = "*"
+twine = "*"
 
 [requires]
 python_version = "3.13"

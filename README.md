@@ -23,3 +23,11 @@ Run `pipenv run python -m unittest`
 ### Documentation Generation
 
 Run `pipenv run pdoc --html --output-dir docs camelot_key --force`
+
+### Deployment
+
+  1. Ensure tests pass
+  2. Ensure latest documentation is generated
+  3. Update the version in `src/camelot_key/__init__.py`
+  4. Build the packages: `pipenv run python -m build`
+  5. Upload the packages: `pipenv run python -m twine upload dist/*`
