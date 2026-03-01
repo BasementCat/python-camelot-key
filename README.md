@@ -13,7 +13,7 @@ more detailed information, see the `docs/` folder.
 
 ## Development
 
-For local development, run `pipenv install`, which will install development
+For local development, run `pipenv install -d`, which will install development
 dependencies as well.
 
 ### Testing
